@@ -1,0 +1,32 @@
+<program> ::= <statement>* \n
+
+<statement> ::=
+  "LET" <identifier> = <expr>
+| "PRINT" <obj>
+| "IF" <cond> "THEN" <command> "ELSE" <command>
+| "GOTO" <identifier - label>
+| "GOSUB" <identifier - label>
+| "RETURN"
+| "END"
+| "LABEL" <identifier - label>
+| "PEEK"  <identifier - address> <identifier - destination>
+| "POKE"  <identifier - address> <identifier - source>
+| "REM" <identifier - comment>*  
+| "READ"
+| "WRITE"
+
+<cond>          ::= 
+  <obj> == <obj>
+| <obj> >  <obj>
+| <obj> <  <obj>
+| <obj> <> <obj>
+
+<expr>          ::= <obj> <op> <obj>
+<op>            ::= "+" | "-" | "*" | "/"
+<obj>           :: <identifier> | <const>
+
+<const>         ::= <digit>*
+<identifier>    ::= <letter>*
+
+<digit>         ::= "1" .. "9"
+<letter>        ::= "a" .. "z" | "A" .. "Z"
