@@ -1,0 +1,19 @@
+clr
+set 0
+add
+set 10
+sAD 617
+clr
+set 0
+add
+set 5
+sAD 243
+clr
+lDR 617
+add
+lDR 243
+sAD 563
+lDR 563
+sRD 0
+out 0
+
