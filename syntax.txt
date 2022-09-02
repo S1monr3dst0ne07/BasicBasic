@@ -5,10 +5,12 @@
 | "PRINT" <obj>
 | "IF" <cond> "THEN" <command> "ELSE" <command>
 | "GOTO" <identifier - label>
+| "LABEL" <identifier - label>
 | "GOSUB" <identifier - label>
 | "RETURN"
+| "PUSH" <obj>
+| "PULL" <identifier>
 | "END"
-| "LABEL" <identifier - label>
 | "PEEK"  <identifier - address> <identifier - destination>
 | "POKE"  <identifier - address> <identifier - source>
 | "REM" <identifier - comment>*  
