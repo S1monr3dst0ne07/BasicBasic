@@ -84,71 +84,77 @@ class cCompiler:
     def Write(self, x):
         self.xOutputBuffer += x + "\n"
 
+    def Command(self):
+        self.Cons()
+        self.Depo(ord(' '))
+        self.xTempBuffer.append(0)
+
+        if self.Match([ord(x) for x in "let"] + [0]):
+            self.Cons()
+            xVar = self.Var2Addr()
+            
+            self.Depo(ord(' '))
+            self.Depo(ord('='))
+            self.Depo(ord(' '))
+                
+            self.Write("clr")
+            
+            self.EvalObj()
+            self.Write("add")
+            self.Depo(ord(' '))
+
+            self.Cons()
+            xOp = self.xTempBuffer[0]
+
+            self.Depo(ord(' '))
+            self.EvalObj()
+
+            if   xOp == 43: self.Write("add")
+            elif xOp == 45: self.Write("sub")
+            elif xOp == 42:
+                #10 - A
+                #11 - B
+                #12 - Result
+                self.Write("clr")
+                self.Write("sAD 12")
+                self.Write("sAD 10")
+                self.Write("sRD 11")
+                self.Write(f"lab temp{self.xLabelIndex}")
+ 
+                self.Write("lDA 10")
+                self.Write(f"jm0 temp{self.xLabelIndex + 1}")
+                self.Write("set 1")
+                self.Write("add")
+                self.Write("sAD 10")
+            
+                self.Write("lDA 12")
+                self.Write("lDR 11")
+                self.Write("add")
+                self.Write("sAD 12")
+            
+                self.Write(f"got temp{self.xLabelIndex}")
+                self.Write(f"lab temp{self.xLabelIndex + 1}")
+
+                self.Write("lDA 12")
+                self.xLabelIndex += 2
+
+            self.Write(f'sAD {xVar}')
+
+        elif self.Match([ord(x) for x in "print"] + [0]):
+            self.EvalObj()
+            self.Write("sRD 0")
+            self.Write("out 0")
+        
+        
+        
     def Compile(self, xRaw):
         self.xSourceBuffer = [ord(x) for x in list(xRaw)] + [0]
 
 
 
         while True:
-            self.Cons()
-            self.Depo(ord(' '))
-            self.xTempBuffer.append(0)
+            self.Command()
 
-            if self.Match([ord(x) for x in "let"] + [0]):
-                self.Cons()
-                xVar = self.Var2Addr()
-                
-                self.Depo(ord(' '))
-                self.Depo(ord('='))
-                self.Depo(ord(' '))
-    
-                
-                self.Write("clr")
-                
-                self.EvalObj()
-                self.Depo(ord(' '))
-    
-                self.Write("add")
-                
-                xOp = self.Cons()
-                self.Depo(ord(' '))
-                self.EvalObj()
-    
-                if   xOp == 43: self.Write("add")
-                elif xOp == 45: self.Write("sub")
-                elif xOp == 42:
-                    #10 - A
-                    #11 - B
-                    #12 - Result
-                    self.Write("clr")
-                    self.Write("sAD 12")
-                    self.Write("sAD 10")
-                    self.Write("sRD 11")
-                    self.Write(f"lab temp{self.xLabelIndex}")
-     
-                    self.Write("lDA 10")
-                    self.Write(f"jm0 temp{self.xLabelIndex + 1}")
-                    self.Write("set 1")
-                    self.Write("add")
-                    self.Write("sAD 10")
-                
-                    self.Write("lDA 12")
-                    self.Write("lDR 11")
-                    self.Write("add")
-                    self.Write("sAD 12")
-                
-                    self.Write(f"got temp{self.xLabelIndex}")
-                    self.Write(f"lab temp{self.xLabelIndex + 1}")
-    
-                    self.Write("lDA 12")
-                    self.xLabelIndex += 2
-    
-                self.Write(f'sAD {xVar}')
-
-            elif self.Match([ord(x) for x in "print"] + [0]):
-                self.EvalObj()
-                self.Write("sRD 0")
-                self.Write("out 0")
 
             #check eof
             if self.xSourceBuffer[0] == 0 or self.xSourceBuffer[1] == 0:

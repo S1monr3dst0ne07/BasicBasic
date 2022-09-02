@@ -2,16 +2,19 @@ clr
 set 0
 add
 set 10
+add
 sAD 617
 clr
 set 0
 add
 set 5
+add
 sAD 243
 clr
 lDR 617
 add
 lDR 243
+add
 sAD 563
 lDR 563
 sRD 0

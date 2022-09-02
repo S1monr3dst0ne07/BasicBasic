@@ -1,7 +1,7 @@
-<program> ::= <statement>* \n
+<program>       ::= <statement> \n [<program>]
 
-<statement> ::=
-  "LET" <identifier> = <expr>
+<statement>     ::=
+  "LET" <identifier> "=" <expr>
 | "PRINT" <obj>
 | "IF" <cond> "THEN" <command> "ELSE" <command>
 | "GOTO" <identifier - label>
@@ -13,7 +13,6 @@
 | "POKE"  <identifier - address> <identifier - source>
 | "REM" <identifier - comment>*  
 | "READ"
-| "WRITE"
 
 <cond>          ::= 
   <obj> == <obj>
