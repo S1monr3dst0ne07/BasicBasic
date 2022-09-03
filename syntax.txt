@@ -6,6 +6,8 @@
 | "IF" <cond> "THEN" <command> "ELSE" <command>
 | "GOTO" <identifier - label>
 | "LABEL" <identifier - label>
+| "REM" '<identifier - comment>*'  
+
 | "GOSUB" <identifier - label>
 | "RETURN"
 | "PUSH" <obj>
@@ -13,7 +15,6 @@
 | "END"
 | "PEEK"  <identifier - address> <identifier - destination>
 | "POKE"  <identifier - address> <identifier - source>
-| "REM" <identifier - comment>*  
 | "READ"
 
 <cond>          ::= 

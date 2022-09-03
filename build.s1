@@ -1,22 +1,29 @@
 clr
 set 0
 add
-set 10
-add
-sAD 617
-clr
 set 0
 add
-set 5
-add
-sAD 243
+sAD 339
+lab loop
 clr
-lDR 617
+lDR 339
 add
-lDR 243
+set 1
 add
-sAD 563
-lDR 563
+sAD 339
+lDR 339
 sRD 0
 out 0
+clr
+lDR 339
+add
+set 100
+jmL _0
+got _1
+lab _0
+got loop
+got _2
+lab _1
+lab _2
+brk
 

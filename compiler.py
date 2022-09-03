@@ -41,6 +41,19 @@ class cCompiler:
             xIndex += 1
         return True
 
+    #consume string
+    def String(self):
+        self.Depo(ord("'"))
+        self.xTempBuffer = []        
+        
+        while True:
+            xChar = self.xSourceBuffer.pop(0)
+
+            if xChar == ord("'"):
+                break
+            
+            self.xTempBuffer.append(xChar)
+
     #consume one character, check again given character and raise syntax error if not matching
     def Depo(self, xChar):
         if self.xSourceBuffer.pop(0) != xChar:
@@ -145,7 +158,84 @@ class cCompiler:
             self.Write("sRD 0")
             self.Write("out 0")
         
-        
+        elif self.Match([ord(x) for x in "if"] + [0]):
+            #keep reference to label index
+            xSkipLabel = self.xLabelIndex
+            xElseLabel = self.xLabelIndex + 1
+            xEndLabel  = self.xLabelIndex + 2 
+            self.xLabelIndex += 3
+
+            self.Write("clr")
+            
+            self.EvalObj()
+            self.Write("add")
+            self.Depo(ord(' '))
+
+            self.Cons()
+            self.xOp = self.xTempBuffer[:] + [0, 0]
+
+            self.Depo(ord(' '))
+            self.EvalObj()
+
+            self.Depo(ord(' '))
+            self.Depo(ord('t'))
+            self.Depo(ord('h'))
+            self.Depo(ord('e'))
+            self.Depo(ord('n'))
+            self.Depo(ord(' '))
+                        
+            #skip by condition
+            if   self.xOp[0] == 61 and self.xOp[1] == 61: 
+                self.Write(f'jmA _{xSkipLabel}')
+                self.Write(f'got _{xElseLabel}')
+                self.Write(f'lab _{xSkipLabel}')
+            elif self.xOp[0] == 60 and self.xOp[1] == 62: 
+                self.Write(f'jmA {xElseLabel}')
+            elif self.xOp[0] == 62:
+                self.Write(f'jmG _{xSkipLabel}')
+                self.Write(f'got _{xElseLabel}')
+                self.Write(f'lab _{xSkipLabel}')                
+            elif self.xOp[0] == 60:
+                self.Write(f'jmL _{xSkipLabel}')
+                self.Write(f'got _{xElseLabel}')
+                self.Write(f'lab _{xSkipLabel}')
+                
+            else:
+                cUtils.Error("Error: Invaild syntax")
+            
+
+            #evaluate first sub-command
+            self.Command()
+            
+            #consume else
+            self.Depo(ord(' '))
+            self.Depo(ord('e'))
+            self.Depo(ord('l'))
+            self.Depo(ord('s'))
+            self.Depo(ord('e'))
+            self.Depo(ord(' '))            
+            
+            #second flow change
+            self.Write(f'got _{xEndLabel}')
+            self.Write(f'lab _{xElseLabel}')
+            
+            #second
+            self.Command()
+            
+            #end label
+            self.Write(f'lab _{xEndLabel}')     
+            
+        elif self.Match([ord(x) for x in "goto"] + [0]):            
+            self.Cons()
+            self.Write(f'got {"".join([chr(x) for x in self.xTempBuffer])}')     
+            
+        elif self.Match([ord(x) for x in "label"] + [0]):
+            self.Cons()            
+            self.Write(f'lab {"".join([chr(x) for x in self.xTempBuffer])}')    
+            
+        elif self.Match([ord(x) for x in "rem"] + [0]):
+            self.String()
+
         
     def Compile(self, xRaw):
         self.xSourceBuffer = [ord(x) for x in list(xRaw)] + [0]
@@ -153,6 +243,10 @@ class cCompiler:
 
 
         while True:
+            
+            while self.xSourceBuffer[0] == ord('\n'):
+                self.Depo(ord('\n'))                
+
             self.Command()
 
 
@@ -162,6 +256,7 @@ class cCompiler:
             else:
                 self.Depo(ord('\n'))
 
+        self.Write("brk")
             
         return self.xOutputBuffer
 
