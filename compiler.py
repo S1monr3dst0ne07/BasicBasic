@@ -268,24 +268,25 @@ class cCompiler:
         elif self.Match([ord(x) for x in "peek"] + [0]):
             self.Depo(ord(' '))
             self.Cons()
-            if self.xTempBuffer[0] > 60:    xAddr = self.Var2Addr()      
-            else:                           xAddr = self.Const2Val()
+            if self.xTempBuffer[0] > 60:    self.Write(f"lPR {self.Var2Addr()}")
+            else:                           self.Write(f"lDR {self.Const2Val()}")            
             
             self.Depo(ord(' '))
             self.Cons()
             xDest = self.Var2Addr()
-            self.Write(f"lPA {xAddr}")
-            self.Write(f"sAD {xDest}")
+            self.Write(f"sRD {xDest}")
 
         elif self.Match([ord(x) for x in "poke"] + [0]):
             self.Depo(ord(' '))
             self.Cons()
-            if self.xTempBuffer[0] > 60:    xAddr = self.Var2Addr()      
-            else:                           xAddr = self.Const2Val()
+            xType = self.xTempBuffer[0]
+            if xType > 60:  xAddr = self.Var2Addr()      
+            else:           xAddr = self.Const2Val()
             
             self.Depo(ord(' '))
             self.EvalObj()
-            self.Write(f"sRP {xAddr}")
+            if xType > 60:  self.Write(f"sRP {xAddr}")
+            else:           self.Write(f"sRD {xAddr}")
             
         elif self.Match([ord(x) for x in "puts"] + [0]):
             self.Depo(ord(' '))
