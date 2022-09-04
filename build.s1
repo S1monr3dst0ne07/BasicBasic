@@ -1,7 +1,54 @@
-lPA 1000
-sAD 339
-lDR 339
-sRD 0
-out 0
+clr
+set 72
+add
+putstr
+clr
+set 101
+add
+putstr
+clr
+set 108
+add
+putstr
+clr
+set 108
+add
+putstr
+clr
+set 111
+add
+putstr
+clr
+set 44
+add
+putstr
+clr
+set 32
+add
+putstr
+clr
+set 87
+add
+putstr
+clr
+set 111
+add
+putstr
+clr
+set 114
+add
+putstr
+clr
+set 108
+add
+putstr
+clr
+set 100
+add
+putstr
+clr
+set 33
+add
+putstr
 brk
 

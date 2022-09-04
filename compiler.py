@@ -50,6 +50,7 @@ class cCompiler:
             xChar = self.xSourceBuffer.pop(0)
 
             if xChar == ord("'"):
+                self.xTempBuffer.append(0)                
                 break
             
             self.xTempBuffer.append(xChar)
@@ -288,6 +289,14 @@ class cCompiler:
             self.EvalObj()
             self.Write(f"sRP {xAddr}")
             
+        elif self.Match([ord(x) for x in "puts"] + [0]):
+            self.Depo(ord(' '))            
+            self.String()
+            while self.xTempBuffer[0] != 0:
+                self.Write("clr")
+                self.Write(f"set {self.xTempBuffer.pop(0)}")
+                self.Write("add")
+                self.Write("putstr")
             
         
     def Compile(self, xRaw):

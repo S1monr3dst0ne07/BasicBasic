@@ -6,16 +6,15 @@
 | "IF" <cond> "THEN" <command> "ELSE" <command>
 | "GOTO" <identifier - label>
 | "LABEL" <identifier - label>
-| "REM" '<identifier - comment>*'  
+| "REM" '<identifier - comment>*'
 | "GOSUB" <identifier - label>
 | "RETURN"
 | "END"
 | "PUSH" <obj>
 | "PULL" <identifier>
-
 | "PEEK"  <obj - address> <identifier - destination>
 | "POKE"  <obj - address> <obj - source>
-| "READ"
+| "PUTS" '<identifier - comment>'
 
 <cond>          ::= 
   <obj> == <obj>
