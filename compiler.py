@@ -39,7 +39,6 @@ class cCompiler:
             elif xCharArray[xIndex] != self.xTempBuffer[xIndex]:          return False
 
             xIndex += 1
-        return True
 
     #consume string
     def String(self):
@@ -100,7 +99,6 @@ class cCompiler:
     def Command(self):
         self.Cons()
         self.xTempBuffer.append(0)
-        #print([chr(x) for x in self.xTempBuffer])
 
         if self.Match([ord(x) for x in "let"] + [0]):
             self.Depo(ord(' '))
@@ -291,8 +289,8 @@ class cCompiler:
             
         elif self.Match([ord(x) for x in "puts"] + [0]):
             self.Depo(ord(' '))
-            
-            if self.xSourceBuffer[0] == "'":                     
+                        
+            if self.xSourceBuffer[0] == ord("'"):                     
                 self.String()
                 while self.xTempBuffer[0] != 0:
                     self.Write("clr")
@@ -313,9 +311,10 @@ class cCompiler:
         while True:
             
             #check empty lines
-            while self.xSourceBuffer[0] == ord('\n'):
-                self.Depo(ord('\n'))                
-
+            while True:
+                if len(self.xSourceBuffer) == 0 or (self.xSourceBuffer[0] != ord("\n") and self.xSourceBuffer[0] != ord(" ")): break
+                self.xSourceBuffer.pop(0)
+                
             #check eof
             if self.xSourceBuffer[0] == 0 or self.xSourceBuffer[1] == 0:
                 break
