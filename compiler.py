@@ -127,16 +127,16 @@ class cCompiler:
                 #10 - A
                 #11 - B
                 #12 - Result
-                self.Write("clr")
-                self.Write("sAD 12")
                 self.Write("sAD 10")
                 self.Write("sRD 11")
+                self.Write("clr")
+                self.Write("sAD 12")
                 self.Write(f"lab temp{self.xLabelIndex}")
  
                 self.Write("lDA 10")
                 self.Write(f"jm0 temp{self.xLabelIndex + 1}")
                 self.Write("set 1")
-                self.Write("add")
+                self.Write("sub")
                 self.Write("sAD 10")
             
                 self.Write("lDA 12")

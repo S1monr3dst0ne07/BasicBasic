@@ -78,9 +78,7 @@ label Command::Let
  gosub Depo
  
  gosub Cons
- print tp
  peek 1000 op
- print op
  
  let am = 32 + 0
  gosub Depo 
@@ -197,11 +195,12 @@ label Const2Val
 label Var2Addr
  peek 1000 co
  peek 1001 ct
- let co = co - 65
+ let co = co - 97
  let co = co * 27
- let ct = ct - 65
+ let ct = ct - 97
  let rt = co + ct
  let rt = rt + 100
+ print rt
  return
 
 rem 'helper routines'
