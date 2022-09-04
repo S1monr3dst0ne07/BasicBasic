@@ -97,7 +97,35 @@ label Command::Let
  return
  
  label Command::Let::Mul
- 
+  let lt = li + 1
+  puts 'sAD 10
+sRD 11
+clr
+sAD 12
+lab temp'
+  print li
+  puts '
+lDA 10
+jm0 temp'
+  print lt
+  puts '
+set 1
+sub
+sAD 10
+lDA 12
+lDR 11
+add
+sAD 12
+got temp'
+  print li
+  puts '
+lab temp'
+  print lt
+  puts '
+lDA 12
+'
+  let li = li + 2
+ return
  
  
  
@@ -167,7 +195,7 @@ label EvalObj
  gosub Cons
  let tp = 1000 + 0
  peek tp tm
- if tm > 60 then EvalObj::Var else rem ''
+ if tm > 60 then goto EvalObj::Var else rem ''
  puts 'set '
  gosub Const2Val
  print rt
@@ -200,7 +228,6 @@ label Var2Addr
  let ct = ct - 97
  let rt = co + ct
  let rt = rt + 100
- print rt
  return
 
 rem 'helper routines'
