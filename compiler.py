@@ -57,7 +57,6 @@ class cCompiler:
     #consume one character, check again given character and raise syntax error if not matching
     def Depo(self, xChar):
         if self.xSourceBuffer.pop(0) != xChar:
-            print([chr(x) for x in self.xSourceBuffer])
             cUtils.Error("Error: Invaild syntax")            
 
     #evaluate object (const or var) and set reg
@@ -99,10 +98,11 @@ class cCompiler:
 
     def Command(self):
         self.Cons()
-        self.Depo(ord(' '))
         self.xTempBuffer.append(0)
+        #print([chr(x) for x in self.xTempBuffer])
 
         if self.Match([ord(x) for x in "let"] + [0]):
+            self.Depo(ord(' '))
             self.Cons()
             xVar = self.Var2Addr()
             
@@ -154,11 +154,13 @@ class cCompiler:
             self.Write(f'sAD {xVar}')
 
         elif self.Match([ord(x) for x in "print"] + [0]):
+            self.Depo(ord(' '))
             self.EvalObj()
             self.Write("sRD 0")
             self.Write("out 0")
         
         elif self.Match([ord(x) for x in "if"] + [0]):
+            self.Depo(ord(' '))
             #keep reference to label index
             xSkipLabel = self.xLabelIndex
             xElseLabel = self.xLabelIndex + 1
@@ -226,36 +228,84 @@ class cCompiler:
             self.Write(f'lab _{xEndLabel}')     
             
         elif self.Match([ord(x) for x in "goto"] + [0]):            
+            self.Depo(ord(' '))
             self.Cons()
             self.Write(f'got {"".join([chr(x) for x in self.xTempBuffer])}')     
             
         elif self.Match([ord(x) for x in "label"] + [0]):
+            self.Depo(ord(' '))
             self.Cons()            
             self.Write(f'lab {"".join([chr(x) for x in self.xTempBuffer])}')    
             
         elif self.Match([ord(x) for x in "rem"] + [0]):
+            self.Depo(ord(' '))
             self.String()
 
+        elif self.Match([ord(x) for x in "gosub"] + [0]):
+            self.Depo(ord(' '))
+            self.Cons()            
+            self.Write(f'jmS {"".join([chr(x) for x in self.xTempBuffer])}')    
+
+        elif self.Match([ord(x) for x in "return"] + [0]):
+            self.Write('ret')
+            
+        elif self.Match([ord(x) for x in "end"] + [0]):
+            self.Write('brk')
+
+        elif self.Match([ord(x) for x in "push"] + [0]):
+            self.Depo(ord(' '))
+            self.Write("clr")
+            self.EvalObj()
+            self.Write("add")
+            self.Write(f'pha')
+        
+        elif self.Match([ord(x) for x in "pull"] + [0]):
+            self.Depo(ord(' '))
+            self.Cons()
+            xVar = self.Var2Addr()            
+            self.Write(f'pla')
+            self.Write(f'sAD {xVar}')
+        
+        elif self.Match([ord(x) for x in "peek"] + [0]):
+            self.Depo(ord(' '))
+            self.Cons()
+            if self.xTempBuffer[0] > 60:    xAddr = self.Var2Addr()      
+            else:                           xAddr = self.Const2Val()
+            
+            self.Depo(ord(' '))
+            self.Cons()
+            xDest = self.Var2Addr()
+            self.Write(f"lPA {xAddr}")
+            self.Write(f"sAD {xDest}")
+
+        elif self.Match([ord(x) for x in "poke"] + [0]):
+            self.Depo(ord(' '))
+            self.Cons()
+            if self.xTempBuffer[0] > 60:    xAddr = self.Var2Addr()      
+            else:                           xAddr = self.Const2Val()
+            
+            self.Depo(ord(' '))
+            self.EvalObj()
+            self.Write(f"sRP {xAddr}")
+            
+            
         
     def Compile(self, xRaw):
         self.xSourceBuffer = [ord(x) for x in list(xRaw)] + [0]
-
-
-
         while True:
             
+            #check empty lines
             while self.xSourceBuffer[0] == ord('\n'):
                 self.Depo(ord('\n'))                
-
-            self.Command()
-
 
             #check eof
             if self.xSourceBuffer[0] == 0 or self.xSourceBuffer[1] == 0:
                 break
-            else:
-                self.Depo(ord('\n'))
 
+            self.Command()
+
+
+            
         self.Write("brk")
             
         return self.xOutputBuffer
