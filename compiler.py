@@ -193,7 +193,7 @@ class cCompiler:
                 self.Write(f'got _{xElseLabel}')
                 self.Write(f'lab _{xSkipLabel}')
             elif self.xOp[0] == 60 and self.xOp[1] == 62: 
-                self.Write(f'jmA {xElseLabel}')
+                self.Write(f'jmA _{xElseLabel}')
             elif self.xOp[0] == 62:
                 self.Write(f'jmG _{xSkipLabel}')
                 self.Write(f'got _{xElseLabel}')
@@ -290,13 +290,22 @@ class cCompiler:
             self.Write(f"sRP {xAddr}")
             
         elif self.Match([ord(x) for x in "puts"] + [0]):
-            self.Depo(ord(' '))            
-            self.String()
-            while self.xTempBuffer[0] != 0:
-                self.Write("clr")
-                self.Write(f"set {self.xTempBuffer.pop(0)}")
-                self.Write("add")
+            self.Depo(ord(' '))
+            
+            if self.xSourceBuffer[0] == "'":                     
+                self.String()
+                while self.xTempBuffer[0] != 0:
+                    self.Write("clr")
+                    self.Write(f"set {self.xTempBuffer.pop(0)}")
+                    self.Write("add")
+                    self.Write("putstr")
+            
+            else:
+                self.Cons()
+                xVar = self.Var2Addr()
+                self.Write(f"lDA {xVar}")
                 self.Write("putstr")
+                
             
         
     def Compile(self, xRaw):

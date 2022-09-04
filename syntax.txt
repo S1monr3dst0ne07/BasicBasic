@@ -14,7 +14,7 @@
 | "PULL" <identifier>
 | "PEEK"  <obj - address> <identifier - destination>
 | "POKE"  <obj - address> <obj - source>
-| "PUTS" '<identifier - comment>'
+| "PUTS" ('<identifier - comment>' | <identifier - variable>)
 
 <cond>          ::= 
   <obj> == <obj>

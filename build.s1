@@ -1,54 +1,31 @@
 clr
-set 72
+set 10000
 add
+set 0
+add
+sAD 339
+lab loop
+lPA 339
+sAD 690
+clr
+lDR 690
+add
+set 0
+jmA _0
+got _1
+lab _0
+brk
+got _2
+lab _1
+lab _2
+lDA 690
 putstr
 clr
-set 101
+lDR 339
 add
-putstr
-clr
-set 108
+set 1
 add
-putstr
-clr
-set 108
-add
-putstr
-clr
-set 111
-add
-putstr
-clr
-set 44
-add
-putstr
-clr
-set 32
-add
-putstr
-clr
-set 87
-add
-putstr
-clr
-set 111
-add
-putstr
-clr
-set 114
-add
-putstr
-clr
-set 108
-add
-putstr
-clr
-set 100
-add
-putstr
-clr
-set 33
-add
-putstr
+sAD 339
+got loop
 brk
 
