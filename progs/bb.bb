@@ -604,9 +604,9 @@ label String
  gosub Depo
  label String::Loop
   peek sp tm
+  let sp = sp + 1
   if tm == 39 then goto String::Exit else rem ''
   poke tp tm
-  let sp = sp + 1
   let tp = tp + 1
   goto String::Loop
  label String::Exit

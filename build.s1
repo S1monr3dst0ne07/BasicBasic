@@ -2882,6 +2882,12 @@ lab String::Loop
 lPR 601
 sRD 625
 clr
+lDR 601
+add
+set 1
+add
+sAD 601
+clr
 lDR 625
 add
 set 39
@@ -2894,12 +2900,6 @@ lab _127
 lab _128
 lDR 625
 sRP 628
-clr
-lDR 601
-add
-set 1
-add
-sAD 601
 clr
 lDR 628
 add
