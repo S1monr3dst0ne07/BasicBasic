@@ -33,7 +33,8 @@ label Compile
  gosub Command
  goto Compile
 label Done
-puts 'brk'
+puts 'brk
+'
 end
 rem 'subroutines'
 
@@ -48,8 +49,33 @@ label Command
  let ap = ap + 1
  poke ap 116
  let ap = ap + 1
+ poke ap 0
  gosub Match
  if rt == 1 then goto Command::Let else rem ''
+ 
+ let ap = 2000 + 0
+ poke ap 112
+ let ap = ap + 1
+ poke ap 114
+ let ap = ap + 1
+ poke ap 105
+ let ap = ap + 1
+ poke ap 110
+ let ap = ap + 1
+ poke ap 116
+ let ap = ap + 1
+ poke ap 0 
+ gosub Match
+ if rt == 1 then goto Command::Print else rem '' 
+ 
+ let ap = 2000 + 0
+ poke ap 105
+ let ap = ap + 1
+ poke ap 102
+ let ap = ap + 1
+ poke ap 0
+ gosub Match
+ if rt == 1 then goto Command::If else rem ''
  
  return
 
@@ -127,13 +153,140 @@ lDA 12
   let li = li + 2
  return
  
+
+
+label Command::Print
+ let am = 32 + 0
+ gosub Depo
+ gosub EvalObj
+ puts 'sRD 0
+out 0
+'
+ return
  
  
  
+label Command::If
+ let am = 32 + 0
+ gosub Depo
+ let lt = li + 1
  
+ puts 'clr'
+ gosub pNl
  
+ gosub EvalObj
+ puts 'add'
+ gosub pNl
+ let am = 32 + 0
+ gosub Depo
  
+ gosub Cons
+ peek 1000 oo
+ peek 1001 ot
+ if oo == 61 then if ot == 61 then let op = 0 + 0 else rem '' else rem ''
+ if oo == 60 then if ot == 62 then let op = 1 + 0 else rem '' else rem ''
+ if oo == 62 then if ot == 0 then let op = 2 + 0 else rem '' else rem ''
+ if oo == 60 then if ot == 0 then let op = 3 + 0 else rem '' else rem ''
  
+ let am = 32 + 0
+ gosub Depo
+ gosub EvalObj
+ 
+ let am = 32 + 0
+ gosub Depo
+ let am = 116 + 0
+ gosub Depo
+ let am = 104 + 0
+ gosub Depo
+ let am = 101 + 0
+ gosub Depo
+ let am = 110 + 0
+ gosub Depo
+ let am = 32 + 0
+ gosub Depo
+
+ if op == 0 then goto Command::If::Eqe else rem ''
+ if op == 1 then goto Command::If::Not else rem ''
+ if op == 2 then goto Command::If::Gra else rem ''
+ if op == 3 then goto Command::If::Les else rem ''
+ goto Error 
+ 
+ label Command::If::Return
+
+ push li
+ let li = li + 3
+ gosub Command
+ 
+ let am = 32 + 0
+ gosub Depo
+ let am = 101 + 0
+ gosub Depo
+ let am = 108 + 0
+ gosub Depo
+ let am = 115 + 0
+ gosub Depo
+ let am = 101 + 0
+ gosub Depo
+ let am = 32 + 0
+ gosub Depo
+
+ pull tm
+ let tm = tm + 2
+ push tm
+ puts 'got _'
+ print tm
+ gosub pNl
+ let tm = tm - 1
+ puts 'lab _'
+ print tm
+ gosub pNl
+
+ gosub Command
+ 
+ pull tm
+ puts 'lab _'
+ print tm
+ gosub pNl
+ return
+ 
+ label Command::If::Eqe
+  puts 'jmA _'
+  print li
+  gosub pNl
+  puts 'got _'
+  print lt
+  gosub pNl
+  puts 'lab _'
+  print li
+  gosub pNl
+ goto Command::If::Return
+ label Command::If::Not
+  puts 'jmA _'
+  print lt
+  gosub pNl
+ goto Command::If::Return
+ label Command::If::Gra
+  puts 'jmG _'
+  print li
+  gosub pNl
+  puts 'got _'
+  print lt
+  gosub pNl
+  puts 'lab _'
+  print li
+  gosub pNl
+ goto Command::If::Return
+ label Command::If::Les
+  puts 'jmL _'
+  print li
+  gosub pNl
+  puts 'got _'
+  print lt
+  gosub pNl
+  puts 'lab _'
+  print li
+  gosub pNl
+ goto Command::If::Return
  
  
  
