@@ -77,6 +77,154 @@ label Command
  gosub Match
  if rt == 1 then goto Command::If else rem ''
  
+ let ap = 2000 + 0
+ poke ap 103
+ let ap = ap + 1
+ poke ap 111
+ let ap = ap + 1
+ poke ap 116
+ let ap = ap + 1
+ poke ap 111
+ let ap = ap + 1
+ poke ap 0
+ gosub Match
+ if rt == 1 then goto Command::Goto else rem ''
+ 
+ let ap = 2000 + 0 
+ poke ap 108
+ let ap = ap + 1
+ poke ap 97
+ let ap = ap + 1
+ poke ap 98
+ let ap = ap + 1
+ poke ap 101
+ let ap = ap + 1
+ poke ap 108
+ let ap = ap + 1
+ poke ap 0
+ gosub Match
+ if rt == 1 then goto Command::Label else rem ''
+ 
+ let ap = 2000 + 0 
+ poke ap 114
+ let ap = ap + 1
+ poke ap 101
+ let ap = ap + 1
+ poke ap 109
+ let ap = ap + 1
+ poke ap 0
+ gosub Match
+ if rt == 1 then goto Command::Rem else rem ''
+ 
+ let ap = 2000 + 0
+ poke ap 103
+ let ap = ap + 1
+ poke ap 111
+ let ap = ap + 1
+ poke ap 115
+ let ap = ap + 1
+ poke ap 117
+ let ap = ap + 1
+ poke ap 98
+ let ap = ap + 1
+ poke ap 0
+ gosub Match
+ if rt == 1 then goto Command::Gosub else rem '' 
+
+ let ap = 2000 + 0
+ poke ap 114
+ let ap = ap + 1
+ poke ap 101
+ let ap = ap + 1
+ poke ap 116
+ let ap = ap + 1
+ poke ap 117
+ let ap = ap + 1
+ poke ap 114
+ let ap = ap + 1
+ poke ap 110
+ let ap = ap + 1
+ poke ap 0
+ gosub Match
+ if rt == 1 then goto Command::Return else rem '' 
+ 
+ let ap = 2000 + 0
+ poke ap 101
+ let ap = ap + 1
+ poke ap 110
+ let ap = ap + 1
+ poke ap 100
+ let ap = ap + 1
+ poke ap 0 
+ gosub Match
+ if rt == 1 then goto Command::End else rem ''
+ 
+ let ap = 2000 + 0
+ poke ap 112
+ let ap = ap + 1
+ poke ap 117
+ let ap = ap + 1
+ poke ap 115
+ let ap = ap + 1
+ poke ap 104
+ let ap = ap + 1
+ poke ap 0
+ gosub Match
+ if rt == 1 then goto Command::Push else rem ''
+ 
+ let ap = 2000 + 0
+ poke ap 112
+ let ap = ap + 1
+ poke ap 117
+ let ap = ap + 1
+ poke ap 108
+ let ap = ap + 1
+ poke ap 108
+ let ap = ap + 1
+ poke ap 0
+ gosub Match
+ if rt == 1 then goto Command::Pull else rem ''
+
+ let ap = 2000 + 0
+ poke ap 112
+ let ap = ap + 1
+ poke ap 101
+ let ap = ap + 1
+ poke ap 101
+ let ap = ap + 1
+ poke ap 107
+ let ap = ap + 1
+ poke ap 0
+ gosub Match
+ if rt == 1 then goto Command::Peek else rem ''
+
+ let ap = 2000 + 0
+ poke ap 112
+ let ap = ap + 1
+ poke ap 111
+ let ap = ap + 1
+ poke ap 107
+ let ap = ap + 1
+ poke ap 101
+ let ap = ap + 1
+ poke ap 0
+ gosub Match
+ if rt == 1 then goto Command::Poke else rem ''
+
+ let ap = 2000 + 0
+ poke ap 112
+ let ap = ap + 1
+ poke ap 117
+ let ap = ap + 1
+ poke ap 116
+ let ap = ap + 1
+ poke ap 115
+ let ap = ap + 1
+ poke ap 0
+ gosub Match
+ if rt == 1 then goto Command::Puts else rem ''
+ 
+ 
  return
 
 label Command::Let
@@ -289,6 +437,162 @@ label Command::If
  goto Command::If::Return
  
  
+label Command::Goto
+ let am = 32 + 0
+ gosub Depo
+ gosub Cons
+ puts 'got '
+ let tp = 1000 + 0
+ label Command::Goto::Loop
+  peek tp tm
+  if tm == 0 then goto Command::Goto::Exit else rem ''
+  puts tm
+  let tp = tp + 1
+  goto Command::Goto::Loop
+ label Command::Goto::Exit
+  gosub pNl
+  return
+  
+label Command::Label
+ let am = 32 + 0
+ gosub Depo
+ gosub Cons
+ puts 'lab '
+ let tp = 1000 + 0
+ label Command::Label::Loop
+  peek tp tm
+  if tm == 0 then goto Command::Label::Exit else rem ''
+  puts tm
+  let tp = tp + 1
+  goto Command::Label::Loop
+ label Command::Label::Exit
+  gosub pNl
+  return
+ 
+label Command::Rem
+ let am = 32 + 0
+ gosub Depo
+ gosub String
+ return 
+ 
+label Command::Gosub
+ let am = 32 + 0
+ gosub Depo
+ gosub Cons
+ puts 'jmS '
+ let tp = 1000 + 0
+ label Command::Label::Loop
+  peek tp tm
+  if tm == 0 then goto Command::Label::Exit else rem ''
+  puts tm
+  let tp = tp + 1
+  goto Command::Label::Loop
+ label Command::Label::Exit
+  gosub pNl
+  return
+ 
+label Command::Return
+ puts 'ret'
+ gosub pNl
+ return
+ 
+label Command::End
+ puts 'brk'
+ gosub pNl
+ return
+ 
+label Command::Push
+ let am = 32 + 0
+ gosub Depo
+ puts 'clr'
+ gosub pNl
+ gosub EvalObj
+ puts 'add'
+ gosub pNl
+ puts 'pha'
+ gosub pNl
+ return
+ 
+label Command::Pull
+ let am = 32 + 0
+ gosub Depo
+ gosub Cons
+ gosub Var2Addr
+ puts 'pla'
+ gosub pNl
+ puts 'sAD '
+ print rt
+ gosub pNl
+ return
+
+label Command::Peek
+ let am = 32 + 0
+ gosub Depo
+ gosub Cons
+ peek 1000 tm
+ if tm > 60 then puts 'lPR ' else puts 'lDR '
+ if tm > 60 then gosub Var2Addr else gosub Const2Val
+ print rt
+ gosub pNl
+
+ let am = 32 + 0
+ gosub Depo
+ gosub Cons
+ gosub Var2Addr
+ puts 'sRD '
+ print rt
+ gosub pNl
+ return 
+ 
+label Command::Poke
+ let am = 32 + 0
+ gosub Depo
+ gosub Cons
+ peek 1000 ty
+ if ty > 60 then gosub Var2Addr else gosub Const2Val
+ let rs = rt + 0
+ 
+ let am = 32 + 0
+ gosub Depo
+ gosub EvalObj
+ if ty > 60 then puts 'sRP ' else puts 'sRD '
+ print rs
+ gosub pNl
+ return
+ 
+label Command::Puts
+ let am = 32 + 0
+ gosub Depo
+ 
+ peek sp tm
+ if tm == 39 then goto Command::Puts::String else rem ''
+ gosub Cons
+ gosub Var2Addr
+ puts 'lDA '
+ print rt
+ gosub pNl
+ puts 'putstr'
+ gosub pNl
+ return
+ 
+ label Command::Puts::String
+  gosub String
+  let tp = 1000 + 0
+  label Command::Puts::StringLoop
+   peek tp tm
+   let tp = tp + 1
+   puts 'clr
+set '
+   print tm
+   gosub pNl
+   puts 'add
+putstr'
+   gosub pNl
+   return
+ 
+ 
+ 
+ 
  
 label String
  let am = 39 + 0
@@ -300,7 +604,7 @@ label String
   poke tp tm
   let sp = sp + 1
   let tp = tp + 1
-  goto Skips::Loop
+  goto String::Loop
  label String::Exit
   poke tp 0
  return

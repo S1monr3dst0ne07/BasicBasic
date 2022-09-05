@@ -245,6 +245,594 @@ got Command::If
 got _20
 lab _19
 lab _20
+clr
+set 2000
+add
+set 0
+add
+sAD 115
+set 103
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 111
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 116
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 111
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 0
+sRP 115
+jmS Match
+clr
+lDR 578
+add
+set 1
+jmA _21
+got _22
+lab _21
+got Command::Goto
+got _23
+lab _22
+lab _23
+clr
+set 2000
+add
+set 0
+add
+sAD 115
+set 108
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 97
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 98
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 101
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 108
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 0
+sRP 115
+jmS Match
+clr
+lDR 578
+add
+set 1
+jmA _24
+got _25
+lab _24
+got Command::Label
+got _26
+lab _25
+lab _26
+clr
+set 2000
+add
+set 0
+add
+sAD 115
+set 114
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 101
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 109
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 0
+sRP 115
+jmS Match
+clr
+lDR 578
+add
+set 1
+jmA _27
+got _28
+lab _27
+got Command::Rem
+got _29
+lab _28
+lab _29
+clr
+set 2000
+add
+set 0
+add
+sAD 115
+set 103
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 111
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 115
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 117
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 98
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 0
+sRP 115
+jmS Match
+clr
+lDR 578
+add
+set 1
+jmA _30
+got _31
+lab _30
+got Command::Gosub
+got _32
+lab _31
+lab _32
+clr
+set 2000
+add
+set 0
+add
+sAD 115
+set 114
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 101
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 116
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 117
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 114
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 110
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 0
+sRP 115
+jmS Match
+clr
+lDR 578
+add
+set 1
+jmA _33
+got _34
+lab _33
+got Command::Return
+got _35
+lab _34
+lab _35
+clr
+set 2000
+add
+set 0
+add
+sAD 115
+set 101
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 110
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 100
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 0
+sRP 115
+jmS Match
+clr
+lDR 578
+add
+set 1
+jmA _36
+got _37
+lab _36
+got Command::End
+got _38
+lab _37
+lab _38
+clr
+set 2000
+add
+set 0
+add
+sAD 115
+set 112
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 117
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 115
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 104
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 0
+sRP 115
+jmS Match
+clr
+lDR 578
+add
+set 1
+jmA _39
+got _40
+lab _39
+got Command::Push
+got _41
+lab _40
+lab _41
+clr
+set 2000
+add
+set 0
+add
+sAD 115
+set 112
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 117
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 108
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 108
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 0
+sRP 115
+jmS Match
+clr
+lDR 578
+add
+set 1
+jmA _42
+got _43
+lab _42
+got Command::Pull
+got _44
+lab _43
+lab _44
+clr
+set 2000
+add
+set 0
+add
+sAD 115
+set 112
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 101
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 101
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 107
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 0
+sRP 115
+jmS Match
+clr
+lDR 578
+add
+set 1
+jmA _45
+got _46
+lab _45
+got Command::Peek
+got _47
+lab _46
+lab _47
+clr
+set 2000
+add
+set 0
+add
+sAD 115
+set 112
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 111
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 107
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 101
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 0
+sRP 115
+jmS Match
+clr
+lDR 578
+add
+set 1
+jmA _48
+got _49
+lab _48
+got Command::Poke
+got _50
+lab _49
+lab _50
+clr
+set 2000
+add
+set 0
+add
+sAD 115
+set 112
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 117
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 116
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 115
+sRP 115
+clr
+lDR 115
+add
+set 1
+add
+sAD 115
+set 0
+sRP 115
+jmS Match
+clr
+lDR 578
+add
+set 1
+jmA _51
+got _52
+lab _51
+got Command::Puts
+got _53
+lab _52
+lab _53
 ret
 lab Command::Let
 clr
@@ -332,9 +920,9 @@ clr
 lDR 493
 add
 set 43
-jmA _21
-got _22
-lab _21
+jmA _54
+got _55
+lab _54
 clr
 set 97
 add
@@ -351,16 +939,16 @@ clr
 set 10
 add
 putstr
-got _23
-lab _22
-lab _23
+got _56
+lab _55
+lab _56
 clr
 lDR 493
 add
 set 45
-jmA _24
-got _25
-lab _24
+jmA _57
+got _58
+lab _57
 clr
 set 115
 add
@@ -377,20 +965,20 @@ clr
 set 10
 add
 putstr
-got _26
-lab _25
-lab _26
+got _59
+lab _58
+lab _59
 clr
 lDR 493
 add
 set 42
-jmA _27
-got _28
-lab _27
+jmA _60
+got _61
+lab _60
 jmS Command::Let::Mul
-got _29
-lab _28
-lab _29
+got _62
+lab _61
+lab _62
 clr
 set 115
 add
@@ -1021,106 +1609,106 @@ clr
 lDR 492
 add
 set 61
-jmA _30
-got _31
-lab _30
+jmA _63
+got _64
+lab _63
 clr
 lDR 497
 add
 set 61
-jmA _33
-got _34
-lab _33
+jmA _66
+got _67
+lab _66
 clr
 set 0
 add
 set 0
 add
 sAD 493
-got _35
-lab _34
-lab _35
-got _32
-lab _31
-lab _32
+got _68
+lab _67
+lab _68
+got _65
+lab _64
+lab _65
 clr
 lDR 492
 add
 set 60
-jmA _36
-got _37
-lab _36
+jmA _69
+got _70
+lab _69
 clr
 lDR 497
 add
 set 62
-jmA _39
-got _40
-lab _39
+jmA _72
+got _73
+lab _72
 clr
 set 1
 add
 set 0
 add
 sAD 493
-got _41
-lab _40
-lab _41
-got _38
-lab _37
-lab _38
+got _74
+lab _73
+lab _74
+got _71
+lab _70
+lab _71
 clr
 lDR 492
 add
 set 62
-jmA _42
-got _43
-lab _42
+jmA _75
+got _76
+lab _75
 clr
 lDR 497
 add
 set 0
-jmA _45
-got _46
-lab _45
+jmA _78
+got _79
+lab _78
 clr
 set 2
 add
 set 0
 add
 sAD 493
-got _47
-lab _46
-lab _47
-got _44
-lab _43
-lab _44
+got _80
+lab _79
+lab _80
+got _77
+lab _76
+lab _77
 clr
 lDR 492
 add
 set 60
-jmA _48
-got _49
-lab _48
+jmA _81
+got _82
+lab _81
 clr
 lDR 497
 add
 set 0
-jmA _51
-got _52
-lab _51
+jmA _84
+got _85
+lab _84
 clr
 set 3
 add
 set 0
 add
 sAD 493
-got _53
-lab _52
-lab _53
-got _50
-lab _49
-lab _50
+got _86
+lab _85
+lab _86
+got _83
+lab _82
+lab _83
 clr
 set 32
 add
@@ -1175,46 +1763,46 @@ clr
 lDR 493
 add
 set 0
-jmA _54
-got _55
-lab _54
+jmA _87
+got _88
+lab _87
 got Command::If::Eqe
-got _56
-lab _55
-lab _56
+got _89
+lab _88
+lab _89
 clr
 lDR 493
 add
 set 1
-jmA _57
-got _58
-lab _57
+jmA _90
+got _91
+lab _90
 got Command::If::Not
-got _59
-lab _58
-lab _59
+got _92
+lab _91
+lab _92
 clr
 lDR 493
 add
 set 2
-jmA _60
-got _61
-lab _60
+jmA _93
+got _94
+lab _93
 got Command::If::Gra
-got _62
-lab _61
-lab _62
+got _95
+lab _94
+lab _95
 clr
 lDR 493
 add
 set 3
-jmA _63
-got _64
-lab _63
+jmA _96
+got _97
+lab _96
 got Command::If::Les
-got _65
-lab _64
-lab _65
+got _98
+lab _97
+lab _98
 got Error
 lab Command::If::Return
 clr
@@ -1612,6 +2200,657 @@ sRD 0
 out 0
 jmS pNl
 got Command::If::Return
+lab Command::Goto
+clr
+set 32
+add
+set 0
+add
+sAD 112
+jmS Depo
+jmS Cons
+clr
+set 103
+add
+putstr
+clr
+set 111
+add
+putstr
+clr
+set 116
+add
+putstr
+clr
+set 32
+add
+putstr
+clr
+set 1000
+add
+set 0
+add
+sAD 628
+lab Command::Goto::Loop
+lPR 628
+sRD 625
+clr
+lDR 625
+add
+set 0
+jmA _99
+got _100
+lab _99
+got Command::Goto::Exit
+got _101
+lab _100
+lab _101
+lDA 625
+putstr
+clr
+lDR 628
+add
+set 1
+add
+sAD 628
+got Command::Goto::Loop
+lab Command::Goto::Exit
+jmS pNl
+ret
+lab Command::Label
+clr
+set 32
+add
+set 0
+add
+sAD 112
+jmS Depo
+jmS Cons
+clr
+set 108
+add
+putstr
+clr
+set 97
+add
+putstr
+clr
+set 98
+add
+putstr
+clr
+set 32
+add
+putstr
+clr
+set 1000
+add
+set 0
+add
+sAD 628
+lab Command::Label::Loop
+lPR 628
+sRD 625
+clr
+lDR 625
+add
+set 0
+jmA _102
+got _103
+lab _102
+got Command::Label::Exit
+got _104
+lab _103
+lab _104
+lDA 625
+putstr
+clr
+lDR 628
+add
+set 1
+add
+sAD 628
+got Command::Label::Loop
+lab Command::Label::Exit
+jmS pNl
+ret
+lab Command::Rem
+clr
+set 32
+add
+set 0
+add
+sAD 112
+jmS Depo
+jmS String
+ret
+lab Command::Gosub
+clr
+set 32
+add
+set 0
+add
+sAD 112
+jmS Depo
+jmS Cons
+clr
+set 106
+add
+putstr
+clr
+set 109
+add
+putstr
+clr
+set 83
+add
+putstr
+clr
+set 32
+add
+putstr
+clr
+set 1000
+add
+set 0
+add
+sAD 628
+lab Command::Label::Loop
+lPR 628
+sRD 625
+clr
+lDR 625
+add
+set 0
+jmA _105
+got _106
+lab _105
+got Command::Label::Exit
+got _107
+lab _106
+lab _107
+lDA 625
+putstr
+clr
+lDR 628
+add
+set 1
+add
+sAD 628
+got Command::Label::Loop
+lab Command::Label::Exit
+jmS pNl
+ret
+lab Command::Return
+clr
+set 114
+add
+putstr
+clr
+set 101
+add
+putstr
+clr
+set 116
+add
+putstr
+jmS pNl
+ret
+lab Command::End
+clr
+set 98
+add
+putstr
+clr
+set 114
+add
+putstr
+clr
+set 107
+add
+putstr
+jmS pNl
+ret
+lab Command::Push
+clr
+set 32
+add
+set 0
+add
+sAD 112
+jmS Depo
+clr
+set 99
+add
+putstr
+clr
+set 108
+add
+putstr
+clr
+set 114
+add
+putstr
+jmS pNl
+jmS EvalObj
+clr
+set 97
+add
+putstr
+clr
+set 100
+add
+putstr
+clr
+set 100
+add
+putstr
+jmS pNl
+clr
+set 112
+add
+putstr
+clr
+set 104
+add
+putstr
+clr
+set 97
+add
+putstr
+jmS pNl
+ret
+lab Command::Pull
+clr
+set 32
+add
+set 0
+add
+sAD 112
+jmS Depo
+jmS Cons
+jmS Var2Addr
+clr
+set 112
+add
+putstr
+clr
+set 108
+add
+putstr
+clr
+set 97
+add
+putstr
+jmS pNl
+clr
+set 115
+add
+putstr
+clr
+set 65
+add
+putstr
+clr
+set 68
+add
+putstr
+clr
+set 32
+add
+putstr
+lDR 578
+sRD 0
+out 0
+jmS pNl
+ret
+lab Command::Peek
+clr
+set 32
+add
+set 0
+add
+sAD 112
+jmS Depo
+jmS Cons
+lDR 1000
+sRD 625
+clr
+lDR 625
+add
+set 60
+jmG _108
+got _109
+lab _108
+clr
+set 108
+add
+putstr
+clr
+set 80
+add
+putstr
+clr
+set 82
+add
+putstr
+clr
+set 32
+add
+putstr
+got _110
+lab _109
+clr
+set 108
+add
+putstr
+clr
+set 68
+add
+putstr
+clr
+set 82
+add
+putstr
+clr
+set 32
+add
+putstr
+lab _110
+clr
+lDR 625
+add
+set 60
+jmG _111
+got _112
+lab _111
+jmS Var2Addr
+got _113
+lab _112
+jmS Const2Val
+lab _113
+lDR 578
+sRD 0
+out 0
+jmS pNl
+clr
+set 32
+add
+set 0
+add
+sAD 112
+jmS Depo
+jmS Cons
+jmS Var2Addr
+clr
+set 115
+add
+putstr
+clr
+set 82
+add
+putstr
+clr
+set 68
+add
+putstr
+clr
+set 32
+add
+putstr
+lDR 578
+sRD 0
+out 0
+jmS pNl
+ret
+lab Command::Poke
+clr
+set 32
+add
+set 0
+add
+sAD 112
+jmS Depo
+jmS Cons
+lDR 1000
+sRD 637
+clr
+lDR 637
+add
+set 60
+jmG _114
+got _115
+lab _114
+jmS Var2Addr
+got _116
+lab _115
+jmS Const2Val
+lab _116
+clr
+lDR 578
+add
+set 0
+add
+sAD 577
+clr
+set 32
+add
+set 0
+add
+sAD 112
+jmS Depo
+jmS EvalObj
+clr
+lDR 637
+add
+set 60
+jmG _117
+got _118
+lab _117
+clr
+set 115
+add
+putstr
+clr
+set 82
+add
+putstr
+clr
+set 80
+add
+putstr
+clr
+set 32
+add
+putstr
+got _119
+lab _118
+clr
+set 115
+add
+putstr
+clr
+set 82
+add
+putstr
+clr
+set 68
+add
+putstr
+clr
+set 32
+add
+putstr
+lab _119
+lDR 577
+sRD 0
+out 0
+jmS pNl
+ret
+lab Command::Puts
+clr
+set 32
+add
+set 0
+add
+sAD 112
+jmS Depo
+lPR 601
+sRD 625
+clr
+lDR 625
+add
+set 39
+jmA _120
+got _121
+lab _120
+got Command::Puts::String
+got _122
+lab _121
+lab _122
+jmS Cons
+jmS Var2Addr
+clr
+set 108
+add
+putstr
+clr
+set 68
+add
+putstr
+clr
+set 65
+add
+putstr
+clr
+set 32
+add
+putstr
+lDR 578
+sRD 0
+out 0
+jmS pNl
+clr
+set 112
+add
+putstr
+clr
+set 117
+add
+putstr
+clr
+set 116
+add
+putstr
+clr
+set 115
+add
+putstr
+clr
+set 116
+add
+putstr
+clr
+set 114
+add
+putstr
+jmS pNl
+ret
+lab Command::Puts::String
+jmS String
+clr
+set 1000
+add
+set 0
+add
+sAD 628
+lab Command::Puts::StringLoop
+lPR 628
+sRD 625
+clr
+lDR 628
+add
+set 1
+add
+sAD 628
+clr
+set 99
+add
+putstr
+clr
+set 108
+add
+putstr
+clr
+set 114
+add
+putstr
+clr
+set 10
+add
+putstr
+clr
+set 115
+add
+putstr
+clr
+set 101
+add
+putstr
+clr
+set 116
+add
+putstr
+clr
+set 32
+add
+putstr
+lDR 625
+sRD 0
+out 0
+jmS pNl
+clr
+set 97
+add
+putstr
+clr
+set 100
+add
+putstr
+clr
+set 100
+add
+putstr
+clr
+set 10
+add
+putstr
+clr
+set 112
+add
+putstr
+clr
+set 117
+add
+putstr
+clr
+set 116
+add
+putstr
+clr
+set 115
+add
+putstr
+clr
+set 116
+add
+putstr
+clr
+set 114
+add
+putstr
+jmS pNl
+ret
 lab String
 clr
 set 39
@@ -1633,13 +2872,13 @@ clr
 lDR 625
 add
 set 39
-jmA _66
-got _67
-lab _66
+jmA _123
+got _124
+lab _123
 got String::Exit
-got _68
-lab _67
-lab _68
+got _125
+lab _124
+lab _125
 lDR 625
 sRP 628
 clr
@@ -1654,7 +2893,7 @@ add
 set 1
 add
 sAD 628
-got Skips::Loop
+got String::Loop
 lab String::Exit
 set 0
 sRP 628
@@ -1673,35 +2912,35 @@ clr
 lDR 625
 add
 set 32
-jmA _69
-got _70
-lab _69
+jmA _126
+got _127
+lab _126
 got Cons::Exit
-got _71
-lab _70
-lab _71
+got _128
+lab _127
+lab _128
 clr
 lDR 625
 add
 set 10
-jmA _72
-got _73
-lab _72
+jmA _129
+got _130
+lab _129
 got Cons::Exit
-got _74
-lab _73
-lab _74
+got _131
+lab _130
+lab _131
 clr
 lDR 625
 add
 set 0
-jmA _75
-got _76
-lab _75
+jmA _132
+got _133
+lab _132
 got Cons::Exit
-got _77
-lab _76
-lab _77
+got _134
+lab _133
+lab _134
 lDR 625
 sRP 628
 clr
@@ -1743,33 +2982,33 @@ clr
 lDR 112
 add
 set 0
-jmA _78
-got _79
-lab _78
+jmA _135
+got _136
+lab _135
 got Match::True
-got _80
-lab _79
-lab _80
+got _137
+lab _136
+lab _137
 clr
 lDR 625
 add
 set 0
-jmA _81
-got _82
-lab _81
+jmA _138
+got _139
+lab _138
 got Match::True
-got _83
-lab _82
-lab _83
+got _140
+lab _139
+lab _140
 clr
 lDR 112
 add
 lDR 625
-jmA _85
+jmA _142
 got Match::False
-got _86
-lab _85
-lab _86
+got _143
+lab _142
+lab _143
 clr
 lDR 628
 add
@@ -1812,14 +3051,14 @@ clr
 lDR 625
 add
 lDR 112
-jmA _87
-got _88
-lab _87
+jmA _144
+got _145
+lab _144
 ret
-got _89
-lab _88
+got _146
+lab _145
 got Error
-lab _89
+lab _146
 lab EvalObj
 jmS Cons
 clr
@@ -1834,13 +3073,13 @@ clr
 lDR 625
 add
 set 60
-jmG _90
-got _91
-lab _90
+jmG _147
+got _148
+lab _147
 got EvalObj::Var
-got _92
-lab _91
-lab _92
+got _149
+lab _148
+lab _149
 clr
 set 115
 add
@@ -1906,13 +3145,13 @@ clr
 lDR 625
 add
 set 0
-jmA _93
-got _94
-lab _93
+jmA _150
+got _151
+lab _150
 ret
-got _95
-lab _94
-lab _95
+got _152
+lab _151
+lab _152
 clr
 lDR 578
 add
@@ -1921,9 +3160,9 @@ sAD 10
 sRD 11
 clr
 sAD 12
-lab temp96
+lab temp153
 lDA 10
-jm0 temp97
+jm0 temp154
 set 1
 sub
 sAD 10
@@ -1931,8 +3170,8 @@ lDA 12
 lDR 11
 add
 sAD 12
-got temp96
-lab temp97
+got temp153
+lab temp154
 lDA 12
 sAD 578
 clr
@@ -1973,9 +3212,9 @@ sAD 10
 sRD 11
 clr
 sAD 12
-lab temp98
+lab temp155
 lDA 10
-jm0 temp99
+jm0 temp156
 set 1
 sub
 sAD 10
@@ -1983,8 +3222,8 @@ lDA 12
 lDR 11
 add
 sAD 12
-got temp98
-lab temp99
+got temp155
+lab temp156
 lDA 12
 sAD 168
 clr
