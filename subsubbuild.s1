@@ -1,0 +1,28 @@
+clr
+set 0
+add
+set 0
+add
+sAD 339
+lab loop
+lDR 339
+sRD 0
+out 0
+clr
+lDR 339
+add
+set 1
+add
+sAD 339
+clr
+lDR 339
+add
+set 100
+jmL _0
+got _1
+lab _0
+got loop
+got _2
+lab _1
+lab _2
+brk
