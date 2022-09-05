@@ -580,6 +580,7 @@ label Command::Puts
   let tp = 1000 + 0
   label Command::Puts::StringLoop
    peek tp tm
+   if tm == 0 then goto Command::Puts::Exit else rem ''
    let tp = tp + 1
    puts 'clr
 set '
@@ -588,7 +589,10 @@ set '
    puts 'add
 putstr'
    gosub pNl
-   return
+   goto Command::Puts::StringLoop
+  label Command::Puts::Exit
+  
+  return
  
  
  

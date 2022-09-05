@@ -2768,6 +2768,17 @@ lab Command::Puts::StringLoop
 lPR 628
 sRD 625
 clr
+lDR 625
+add
+set 0
+jmA _123
+got _124
+lab _123
+got Command::Puts::Exit
+got _125
+lab _124
+lab _125
+clr
 lDR 628
 add
 set 1
@@ -2850,6 +2861,8 @@ set 114
 add
 putstr
 jmS pNl
+got Command::Puts::StringLoop
+lab Command::Puts::Exit
 ret
 lab String
 clr
@@ -2872,13 +2885,13 @@ clr
 lDR 625
 add
 set 39
-jmA _123
-got _124
-lab _123
+jmA _126
+got _127
+lab _126
 got String::Exit
-got _125
-lab _124
-lab _125
+got _128
+lab _127
+lab _128
 lDR 625
 sRP 628
 clr
@@ -2912,17 +2925,6 @@ clr
 lDR 625
 add
 set 32
-jmA _126
-got _127
-lab _126
-got Cons::Exit
-got _128
-lab _127
-lab _128
-clr
-lDR 625
-add
-set 10
 jmA _129
 got _130
 lab _129
@@ -2933,7 +2935,7 @@ lab _131
 clr
 lDR 625
 add
-set 0
+set 10
 jmA _132
 got _133
 lab _132
@@ -2941,6 +2943,17 @@ got Cons::Exit
 got _134
 lab _133
 lab _134
+clr
+lDR 625
+add
+set 0
+jmA _135
+got _136
+lab _135
+got Cons::Exit
+got _137
+lab _136
+lab _137
 lDR 625
 sRP 628
 clr
@@ -2982,17 +2995,6 @@ clr
 lDR 112
 add
 set 0
-jmA _135
-got _136
-lab _135
-got Match::True
-got _137
-lab _136
-lab _137
-clr
-lDR 625
-add
-set 0
 jmA _138
 got _139
 lab _138
@@ -3001,14 +3003,25 @@ got _140
 lab _139
 lab _140
 clr
-lDR 112
-add
 lDR 625
-jmA _142
-got Match::False
+add
+set 0
+jmA _141
+got _142
+lab _141
+got Match::True
 got _143
 lab _142
 lab _143
+clr
+lDR 112
+add
+lDR 625
+jmA _145
+got Match::False
+got _146
+lab _145
+lab _146
 clr
 lDR 628
 add
@@ -3051,14 +3064,14 @@ clr
 lDR 625
 add
 lDR 112
-jmA _144
-got _145
-lab _144
+jmA _147
+got _148
+lab _147
 ret
-got _146
-lab _145
+got _149
+lab _148
 got Error
-lab _146
+lab _149
 lab EvalObj
 jmS Cons
 clr
@@ -3073,13 +3086,13 @@ clr
 lDR 625
 add
 set 60
-jmG _147
-got _148
-lab _147
+jmG _150
+got _151
+lab _150
 got EvalObj::Var
-got _149
-lab _148
-lab _149
+got _152
+lab _151
+lab _152
 clr
 set 115
 add
@@ -3145,13 +3158,13 @@ clr
 lDR 625
 add
 set 0
-jmA _150
-got _151
-lab _150
+jmA _153
+got _154
+lab _153
 ret
-got _152
-lab _151
-lab _152
+got _155
+lab _154
+lab _155
 clr
 lDR 578
 add
@@ -3160,9 +3173,9 @@ sAD 10
 sRD 11
 clr
 sAD 12
-lab temp153
+lab temp156
 lDA 10
-jm0 temp154
+jm0 temp157
 set 1
 sub
 sAD 10
@@ -3170,8 +3183,8 @@ lDA 12
 lDR 11
 add
 sAD 12
-got temp153
-lab temp154
+got temp156
+lab temp157
 lDA 12
 sAD 578
 clr
@@ -3212,9 +3225,9 @@ sAD 10
 sRD 11
 clr
 sAD 12
-lab temp155
+lab temp158
 lDA 10
-jm0 temp156
+jm0 temp159
 set 1
 sub
 sAD 10
@@ -3222,8 +3235,8 @@ lDA 12
 lDR 11
 add
 sAD 12
-got temp155
-lab temp156
+got temp158
+lab temp159
 lDA 12
 sAD 168
 clr
